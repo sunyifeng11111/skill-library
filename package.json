@@ -1,6 +1,6 @@
 {
   "name": "skill-library",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": true,
   "type": "module",
   "description": "Local-first macOS desktop app to manage AI coding skills in one library and sync them to 57+ AI tools via atomic symlinks.",

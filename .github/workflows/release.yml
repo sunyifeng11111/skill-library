@@ -79,6 +79,12 @@ jobs:
             fi
           done
 
+          # When no Apple Developer certificate/identity is configured, apply full
+          # bundle-level ad-hoc signing (`-`) so Info.plist and Sealed Resources are bound.
+          if [ -z "$OPT_APPLE_CERTIFICATE" ] && [ -z "$OPT_APPLE_SIGNING_IDENTITY" ]; then
+            echo "APPLE_SIGNING_IDENTITY=-" >> "$GITHUB_ENV"
+          fi
+
       - name: Build and create GitHub Release
         uses: tauri-apps/tauri-action@v1
         env:

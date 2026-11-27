@@ -1,6 +1,6 @@
 [package]
 name = "skill-library"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2021"
 default-run = "skill-library"
 description = "Local-first macOS desktop app to manage AI coding skills in one library and sync them to AI tools via atomic symlinks."

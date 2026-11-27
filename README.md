@@ -101,7 +101,9 @@
 前往 [GitHub Releases](https://github.com/sunyifeng11111/skill-library/releases) 下载对应芯片架构的 `.dmg` 安装包（Apple Silicon 选 `aarch64-apple-darwin`，Intel 选 `x86_64-apple-darwin`）：
 
 1. 打开 `.dmg`，将 **Skill Library.app** 拖入 **应用程序（Applications）** 目录（注意：直接从只读 `.dmg` 镜像中启动时无法执行应用内自动更新覆盖）。
-2. 若当前版本采用免费 ad-hoc 签名而未经过 Apple 公证，首次打开被 Gatekeeper 拦截时请在终端执行一次：
+2. 若当前版本采用免费 ad-hoc 签名而未经过 Apple 公证，首次打开被 Gatekeeper 拦截时：
+   - 可前往 **系统设置 → 隐私与安全性**，在底部点击 **仍要打开**；
+   - 如仍被拦截，请在终端执行一次：
 
 ```bash
 xattr -cr "/Applications/Skill Library.app"

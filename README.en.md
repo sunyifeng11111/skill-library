@@ -101,7 +101,9 @@ Includes **57 built-in presets** plus unlimited **Custom** directories:
 Download the `.dmg` installer matching your Mac from [GitHub Releases](https://github.com/sunyifeng11111/skill-library/releases) (`aarch64-apple-darwin` for Apple Silicon or `x86_64-apple-darwin` for Intel):
 
 1. Open the `.dmg` and drag **Skill Library.app** into **Applications** (launching directly from a mounted `.dmg` prevents in-app self-updates).
-2. If builds are ad-hoc signed without Apple notarization and macOS Gatekeeper warns on first launch, run once in Terminal:
+2. If builds are ad-hoc signed without Apple notarization and macOS Gatekeeper warns on first launch:
+   - Open **System Settings → Privacy & Security** and click **Open Anyway** at the bottom;
+   - If still blocked, run once in Terminal:
 
 ```bash
 xattr -cr "/Applications/Skill Library.app"
