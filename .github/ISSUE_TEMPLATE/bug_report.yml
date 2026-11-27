@@ -1,0 +1,46 @@
+name: Bug Report
+description: Report a bug or unexpected behavior in Skill Library
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to report a bug! Please check existing issues before opening a new one.
+  - type: textarea
+    id: description
+    attributes:
+      label: What happened?
+      description: Clear description of the bug and what you expected instead.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: Minimal steps to reproduce the issue.
+      placeholder: |
+        1. Open ...
+        2. Click ...
+        3. Observe ...
+    validations:
+      required: true
+  - type: input
+    id: app_version
+    attributes:
+      label: Skill Library Version
+      placeholder: "e.g. 0.1.0 (or commit hash if built from source)"
+    validations:
+      required: true
+  - type: input
+    id: os_info
+    attributes:
+      label: macOS Version & Architecture
+      placeholder: "e.g. macOS 15.2 (Apple Silicon / arm64)"
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Additional context / logs / screenshots
+      description: Optional error messages, screenshots, or affected AI tool preset.

@@ -1,0 +1,45 @@
+[package]
+name = "skill-library"
+version = "0.1.0"
+edition = "2021"
+default-run = "skill-library"
+description = "Local-first macOS desktop app to manage AI coding skills in one library and sync them to AI tools via atomic symlinks."
+license = "MIT"
+authors = ["yifeng"]
+repository = "https://github.com/sunyifeng11111/skill-library"
+homepage = "https://github.com/sunyifeng11111/skill-library"
+
+[features]
+default = ["desktop"]
+desktop = ["dep:tauri", "dep:tauri-build", "dep:tauri-plugin-dialog", "dep:tauri-plugin-updater", "dep:tauri-plugin-process"]
+
+[build-dependencies]
+tauri-build = { version = "2", optional = true , features = [] }
+
+[dependencies]
+base64 = "0.23"
+fs2 = "0.4"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+serde_yaml_ng = "0.10"
+sha2 = "0.10"
+tar = { version = "0.4", default-features = false }
+tempfile = "3"
+url = "2"
+unicode-normalization = "0.1"
+uuid = { version = "1", features = ["serde", "v4"] }
+tauri = { version = "2", optional = true , features = [] }
+tauri-plugin-dialog = { version = "2", optional = true }
+tauri-plugin-updater = { version = "2", optional = true }
+tauri-plugin-process = { version = "2", optional = true }
+
+[target.'cfg(any(target_vendor = "apple", target_os = "linux"))'.dependencies]
+rustix = { version = "1", features = ["fs"] }
+
+[target.'cfg(unix)'.dependencies]
+libc = "0.2"
+
+[[bin]]
+name = "skill-library"
+path = "src/main.rs"
+required-features = ["desktop"]

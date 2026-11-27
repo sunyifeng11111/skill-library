@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="490" viewBox="0 0 1200 490" role="img" aria-labelledby="title desc">
+  <title id="title">Skill Library 工作机制：单一本地数据源与原子软链分发</title>
+  <desc id="desc">在线安装或本地扫描的 Skill 经 SHA-256 去重后统一保存在 ~/.skill-library/skills，再通过带事务日志保护的原子软链同步至 Claude Code、Codex、Cursor 及 54+ 更多 AI 工具。</desc>
+
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 1 1.5 L 8.5 5 L 1 8.5 z" fill="#646D82"/>
+    </marker>
+    <marker id="arrow-accent" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 1 1.5 L 8.5 5 L 1 8.5 z" fill="#F05524"/>
+    </marker>
+  </defs>
+
+  <!-- Self-contained obsidian container -->
+  <rect width="1200" height="490" rx="24" fill="#111216"/>
+  <rect x="0.5" y="0.5" width="1199" height="489" rx="23.5" fill="none" stroke="#2A2D37"/>
+
+  <!-- Header -->
+  <rect x="56" y="39" width="16" height="16" rx="4" fill="#F05524"/>
+  <text x="86" y="55" fill="#F5F6F8" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Hiragino Sans GB', 'Segoe UI', sans-serif" font-size="26" font-weight="700" letter-spacing="-0.3">单一本地数据源 → 原子软链分发</text>
+  <text x="1144" y="54" text-anchor="end" fill="#8E95A5" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', ui-monospace, monospace" font-size="18">零副本冗余 · 事务日志保护</text>
+  <line x1="56" y1="78" x2="1144" y2="78" stroke="#232732" stroke-width="1"/>
+
+  <!-- Column labels -->
+  <text x="56" y="114" fill="#8E95A5" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', ui-monospace, monospace" font-size="18" font-weight="600" letter-spacing="0.6">1 · 来源入口</text>
+  <text x="422" y="114" fill="#8E95A5" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', ui-monospace, monospace" font-size="18" font-weight="600" letter-spacing="0.6">2 · Skill 库本地核心</text>
+  <text x="854" y="114" fill="#8E95A5" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', ui-monospace, monospace" font-size="18" font-weight="600" letter-spacing="0.6">3 · AI 工具目录 (57+)</text>
+
+  <!-- Column 1: Sources -->
+  <g id="col-sources">
+    <rect x="56" y="134" width="296" height="142" rx="16" fill="#181B22" stroke="#2B303C"/>
+    <text x="80" y="176" fill="#F5F6F8" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Hiragino Sans GB', sans-serif" font-size="22" font-weight="600">在线仓库安装</text>
+    <text x="80" y="212" fill="#C4C9D4" font-family="ui-monospace, 'SFMono-Regular', Menlo, monospace" font-size="18">GitHub · HTTPS Git</text>
+    <text x="80" y="244" fill="#8E95A5" font-family="ui-monospace, 'SFMono-Regular', Menlo, monospace" font-size="18">npx / bunx skills add</text>
+
+    <rect x="56" y="300" width="296" height="142" rx="16" fill="#181B22" stroke="#2B303C"/>
+    <text x="80" y="342" fill="#F5F6F8" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Hiragino Sans GB', sans-serif" font-size="22" font-weight="600">本机扫描与导入</text>
+    <text x="80" y="378" fill="#C4C9D4" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', sans-serif" font-size="19">扫描工具目录与文件夹</text>
+    <text x="80" y="410" fill="#8E95A5" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', ui-monospace, monospace" font-size="18">SHA-256 内容指纹去重</text>
+  </g>
+
+  <!-- Connectors: Sources -> Core -->
+  <path d="M 352 205 C 386 205, 386 280, 416 280" fill="none" stroke="#454C5E" stroke-width="2" marker-end="url(#arrow)"/>
+  <path d="M 352 371 C 386 371, 386 296, 416 296" fill="none" stroke="#454C5E" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Column 2: Managed Library Core -->
+  <g id="col-core">
+    <path d="M 438 134 H 746 L 778 166 V 426 A 16 16 0 0 1 762 442 H 438 A 16 16 0 0 1 422 426 V 150 A 16 16 0 0 1 438 134 Z" fill="#1A1D26" stroke="#3A4050" stroke-width="1.5"/>
+
+    <!-- Machined recessed slot + signal orange switch key -->
+    <rect x="448" y="158" width="108" height="22" rx="7" fill="#0D0F13" stroke="#272B36"/>
+    <rect x="568" y="158" width="22" height="22" rx="6" fill="#F05524"/>
+
+    <text x="448" y="216" fill="#F5F6F8" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Hiragino Sans GB', sans-serif" font-size="24" font-weight="700">Skill Library 托管核心</text>
+
+    <rect x="448" y="234" width="304" height="40" rx="10" fill="#111216" stroke="#2C313E"/>
+    <text x="464" y="260" fill="#E5E7EB" font-family="ui-monospace, 'SFMono-Regular', Menlo, monospace" font-size="18">~/.skill-library/skills/</text>
+
+    <line x1="448" y1="292" x2="752" y2="292" stroke="#2A2E3B" stroke-width="1"/>
+
+    <rect x="448" y="314" width="8" height="8" rx="2" fill="#F05524"/>
+    <text x="468" y="325" fill="#C4C9D4" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', sans-serif" font-size="19">分类归档、上游来源与链接记录</text>
+
+    <rect x="448" y="356" width="8" height="8" rx="2" fill="#F05524"/>
+    <text x="468" y="367" fill="#C4C9D4" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', sans-serif" font-size="19">原子级软链切换与崩溃恢复日志</text>
+
+    <rect x="448" y="398" width="8" height="8" rx="2" fill="#F05524"/>
+    <text x="468" y="409" fill="#C4C9D4" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', sans-serif" font-size="19">接管前自动备份原目录并可还原</text>
+  </g>
+
+  <!-- Connectors: Core -> AI Tools -->
+  <path d="M 778 288 C 818 288, 814 168, 848 168" fill="none" stroke="#F05524" stroke-width="2" marker-end="url(#arrow-accent)"/>
+  <path d="M 778 288 C 818 288, 814 248, 848 248" fill="none" stroke="#F05524" stroke-width="2" marker-end="url(#arrow-accent)"/>
+  <path d="M 778 288 C 818 288, 814 328, 848 328" fill="none" stroke="#F05524" stroke-width="2" marker-end="url(#arrow-accent)"/>
+  <path d="M 778 288 C 818 288, 814 408, 848 408" fill="none" stroke="#454C5E" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#arrow)"/>
+
+  <!-- Column 3: Active AI Tools -->
+  <g id="col-tools">
+    <rect x="854" y="134" width="290" height="68" rx="14" fill="#181B22" stroke="#2B303C"/>
+    <circle cx="878" cy="158" r="5" fill="#22C55E"/>
+    <text x="896" y="164" fill="#F5F6F8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="20" font-weight="600">Claude Code</text>
+    <text x="896" y="188" fill="#8E95A5" font-family="ui-monospace, 'SFMono-Regular', Menlo, monospace" font-size="18">~/.claude/skills</text>
+
+    <rect x="854" y="214" width="290" height="68" rx="14" fill="#181B22" stroke="#2B303C"/>
+    <circle cx="878" cy="238" r="5" fill="#22C55E"/>
+    <text x="896" y="244" fill="#F5F6F8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="20" font-weight="600">Codex</text>
+    <text x="896" y="268" fill="#8E95A5" font-family="ui-monospace, 'SFMono-Regular', Menlo, monospace" font-size="18">~/.codex/skills</text>
+
+    <rect x="854" y="294" width="290" height="68" rx="14" fill="#181B22" stroke="#2B303C"/>
+    <circle cx="878" cy="318" r="5" fill="#22C55E"/>
+    <text x="896" y="324" fill="#F5F6F8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="20" font-weight="600">Cursor</text>
+    <text x="896" y="348" fill="#8E95A5" font-family="ui-monospace, 'SFMono-Regular', Menlo, monospace" font-size="18">~/.cursor/skills</text>
+
+    <rect x="854" y="374" width="290" height="68" rx="14" fill="#15181F" stroke="#2B303C"/>
+    <rect x="873" y="393" width="10" height="10" rx="2.5" fill="#F05524"/>
+    <text x="896" y="404" fill="#F5F6F8" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Segoe UI', sans-serif" font-size="20" font-weight="600">+ 54 个预设与自定义</text>
+    <text x="896" y="428" fill="#8E95A5" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', sans-serif" font-size="18">支持按分类同步或单条开关</text>
+  </g>
+</svg>
