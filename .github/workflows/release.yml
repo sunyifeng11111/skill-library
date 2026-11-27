@@ -93,6 +93,7 @@ jobs:
         with:
           tagName: 'v__VERSION__'
           releaseName: 'Skill Library v__VERSION__'
+          releaseBody: 'Skill Library v__VERSION__ 已发布，支持应用内签名校验更新。完整更新说明请查看 GitHub Releases。'
           releaseDraft: true
           prerelease: false
           retryAttempts: 2
